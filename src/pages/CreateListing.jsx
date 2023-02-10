@@ -104,8 +104,12 @@ export default function CreateListing() {
       try {
         const response = await fetch(
           `http://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
+
+          /* `http://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}` */
         );
 
+        /* https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`} */
+        
         const data = await response.json();
         geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
         geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
